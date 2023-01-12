@@ -10,13 +10,14 @@ class Multiple_3_and_5{
       }
       return sum;
     }
+
+    size_t arithmetic_progression(size_t limit, size_t diff) {
+      return (diff * (limit / diff) * (1 + (limit / diff)) / 2);
+    }
 };
 
-int main(int ac, char **av) {
-  if (ac != 2)
-    return 1;
+int main() {
   Multiple_3_and_5 sum;
-  size_t ans = sum.three_five_multiple(std::stoul(av[1]));
-  std::cout << "The sum for " << std::stoul(av[1]) << " is " << ans << std::endl;
+  std::cout << "Sum using AP: " << (sum.arithmetic_progression(999, 3) + sum.arithmetic_progression(999, 5) - sum.arithmetic_progression(999, 15)) << std::endl;
   return 0;
 }
